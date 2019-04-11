@@ -1,0 +1,407 @@
+/********** Спецификация **********/
+
+body, ul, li, p, h1, h2, h3, h4, h5, h6, hr, label, button, input, span, svg{
+	padding: 0;
+	margin: 0;	
+}
+
+div:not(.container), p, form, section, a, span, input, button, ul, li{
+	box-sizing: border-box;
+	outline: none;
+}
+
+ul, li{
+	display: block;
+}
+
+a{
+	text-decoration: none;
+}
+
+input, button{
+	border: none;
+}
+
+body, button, input, a{
+	font-family: 'Arial', sans-serif;
+	color: #444;
+	font-size: 18px;
+	font-weight: 400;
+}
+
+img{
+	max-width: 100%;
+	height: auto;
+}
+
+h2{
+	font-size: 35px;
+	font-weight: 700;
+}
+
+table, td{
+	border-collapse: collapse;
+}
+
+table{
+	width: 100%;
+}
+
+.container{
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+/********** Форма ***********/
+
+.form{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.form__input{
+	border-radius: 5px;	
+	width: 250px;
+}
+
+.form__input{
+	padding: 7px 15px;
+	background-color: #FFF;
+	border: 2px solid #000;
+	display: block;
+	margin-top: 30px;
+}
+
+.form__users-number{
+	margin-top: 20px;
+	font-size: 20px;
+}
+
+/********** Список пользователей ***********/
+
+.users-block{
+	background-color: #EEE;
+	padding: 20px; 	
+	margin-top: 30px;
+}
+
+.users-header{
+	font-weight: 700;
+}
+
+.users-header, .user__header{
+	padding-right: 100px;
+}
+
+.user{
+	background-color: #CCC;
+}
+
+.user:nth-child(even){
+	background-color: #EEE;
+}
+
+.user__img-cell{
+	width: 10%;
+	padding-right: 15px;
+}
+
+td:not(.user__img-cell){
+	width: 18%;	
+}
+
+.user__header{
+	cursor: pointer;
+	position: relative;
+}
+
+.user__header::after{
+	content: '\002B';
+  color: #666;
+  font-size: 70px;
+  font-weight: 700;
+	position: absolute;
+	right: 50px;
+	top: 0;
+	height: 100%;
+}
+
+.user__header.active::after{
+	content: '\2212';
+}
+
+.user__img, .user__details-block img{
+	border-radius: 50%;
+	border: 3px solid #fff;
+	display: block;
+}
+
+.user__img-wrapper{
+	display: flex;
+	justify-content: center;
+}
+
+.user__details{
+	padding: 30px 10%;
+	display: none;
+}
+
+.user__details.active{
+	display: block;
+}
+
+.user__details-wrapper{
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+
+.name{
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
+}
+
+.name h2{
+	margin-right: 15px;
+}
+
+.name h2::first-letter, .user__last::first-letter, .user__first::first-letter{
+	text-transform: uppercase;
+}
+
+.name img{
+	height: 40px;
+}
+
+.user__details-block p:not(:last-child){
+	margin-bottom: 5px;
+}
+
+.user__details-block p{
+	font-size: 16px;
+}
+
+.user__details-block span{
+	font-weight: 700;
+}
+
+.error{
+	text-align: center;
+	margin-top: 50px;
+}
+
+.no-success{
+	text-align: center;
+	font-size: 22px;
+	padding: 40px 0; 
+}
+
+/********** Прелоадер **********/
+
+.preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0, 0.7);
+  z-index: 1000;
+}
+
+.cssload-bell {
+	width: 97px;
+	height: 99px;
+	border-radius: 100%;
+	position: absolute;
+	top: 40%;
+	left: calc(50% - 49px);
+}
+
+.cssload-circle {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+.cssload-circle .cssload-inner {
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
+	border: 5px solid rgba(0,255,170,0.7);
+	border-right: none;
+	border-top: none;
+	background-clip: padding;
+	box-shadow: inset 0px 0px 10px rgba(0,255,170,0.15);
+}
+
+.cssload-circle:nth-of-type(0) {
+	transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+}
+.cssload-circle:nth-of-type(0) .cssload-inner {
+	animation: cssload-spin 2.3s infinite linear;
+		-o-animation: cssload-spin 2.3s infinite linear;
+		-ms-animation: cssload-spin 2.3s infinite linear;
+		-webkit-animation: cssload-spin 2.3s infinite linear;
+		-moz-animation: cssload-spin 2.3s infinite linear;
+}
+
+.cssload-circle:nth-of-type(1) {
+	transform: rotate(70deg);
+		-o-transform: rotate(70deg);
+		-ms-transform: rotate(70deg);
+		-webkit-transform: rotate(70deg);
+		-moz-transform: rotate(70deg);
+}
+.cssload-circle:nth-of-type(1) .cssload-inner {
+	animation: cssload-spin 2.3s infinite linear;
+		-o-animation: cssload-spin 2.3s infinite linear;
+		-ms-animation: cssload-spin 2.3s infinite linear;
+		-webkit-animation: cssload-spin 2.3s infinite linear;
+		-moz-animation: cssload-spin 2.3s infinite linear;
+}
+
+.cssload-circle:nth-of-type(2) {
+	transform: rotate(140deg);
+		-o-transform: rotate(140deg);
+		-ms-transform: rotate(140deg);
+		-webkit-transform: rotate(140deg);
+		-moz-transform: rotate(140deg);
+}
+.cssload-circle:nth-of-type(2) .cssload-inner {
+	animation: cssload-spin 2.3s infinite linear;
+		-o-animation: cssload-spin 2.3s infinite linear;
+		-ms-animation: cssload-spin 2.3s infinite linear;
+		-webkit-animation: cssload-spin 2.3s infinite linear;
+		-moz-animation: cssload-spin 2.3s infinite linear;
+}
+
+.cssload-bell {
+	animation: cssload-spin 5.75s infinite linear;
+		-o-animation: cssload-spin 5.75s infinite linear;
+		-ms-animation: cssload-spin 5.75s infinite linear;
+		-webkit-animation: cssload-spin 5.75s infinite linear;
+		-moz-animation: cssload-spin 5.75s infinite linear;
+}
+
+@keyframes cssload-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@-o-keyframes cssload-spin {
+	from {
+		-o-transform: rotate(0deg);
+	}
+	to {
+		-o-transform: rotate(360deg);
+	}
+}
+
+@-ms-keyframes cssload-spin {
+	from {
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		-ms-transform: rotate(360deg);
+	}
+}
+
+@-webkit-keyframes cssload-spin {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@-moz-keyframes cssload-spin {
+	from {
+		-moz-transform: rotate(0deg);
+	}
+	to {
+		-moz-transform: rotate(360deg);
+	}
+}
+
+/********** График “Gender of users” **********/
+
+.chart{
+	height: 600px; 
+	width: 100%;
+}
+
+/*.canvasjs-chart-container{
+	width: 100%;
+}*/
+
+.canvasjs-chart-canvas{
+	/*position: static !important;*/
+}
+
+/********** Модальное окно **********/
+
+.modal {
+  display: none;
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 70%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+.close {
+  color: #555;
+  float: right;
+  font-size: 38px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 1px 7px 35px;
+}
