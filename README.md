@@ -1,1 +1,1 @@
-# user-detail
+https://demonmovch.github.io/user-detail/
