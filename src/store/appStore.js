@@ -1,25 +1,28 @@
-import {observable, computed, action} from 'mobx';
+import { observable, computed, action } from 'mobx';
 
-class appStore{
-    usersSaved = [];
-    @observable users = [];
-    @action add(users){
-        this.users = [...users];
-        this.usersSaved = [...users];
-    }
+class AppStore {
+  usersSaved = [];
 
-    @action search(users){
-      this.users = [...users];
-    }
+  @observable users = [];
 
-    @observable fetching = true;
-    @action toggle(){
-        this.fetching = false;
-    }
+  @observable fetching = true;
 
-    @computed get usersNumber(){
-        return this.users.length;
-    }
+  @action add(users) {
+    this.users = [...users];
+    this.usersSaved = [...users];
+  }
+
+  @action search(users) {
+    this.users = [...users];
+  }
+
+  @action toggle() {
+    this.fetching = false;
+  }
+
+  @computed get usersNumber() {
+    return this.users.length;
+  }
 }
 
-export default new appStore();
+export default new AppStore();
